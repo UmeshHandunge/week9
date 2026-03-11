@@ -1,5 +1,40 @@
 package main;
 
+
 public class Driver {
-    
+    private String name;
+    private String country;
+    private int points;
+    private RallyCar car;
+
+    public Driver(String name, String country, RallyCar car) {
+        this.name = name;
+        this.country = country;
+        this.points = 0;
+        setCar(car);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCountry() {
+        return this.country;
+    }
+
+    public int getpoints(){
+        return this.points;
+    }
+
+    public RallyCar getRallyCar() {
+        return this.car;
+    }
+
+    public void setCar(RallyCar car) {
+        this.car = car;
+    }
+
+    public void addPoints(int points) {
+        this.points += points;
+    }
 }
