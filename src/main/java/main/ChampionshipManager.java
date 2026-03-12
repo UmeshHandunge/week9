@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ChampionshipManager {
@@ -26,31 +27,34 @@ public class ChampionshipManager {
     }
 
     public void registerDriver(Driver driver) {
-        drivers.add(driver);
+        this.drivers.add(driver);
         totalDrivers ++;
     }
 
     public void  addRaceResult(RallyRaceResult result) {
-        races.add(result);
+        this.races.add(result);
         totalRaces ++;
     }
 
     public List<Driver> getDriverSatndings() {
-        //TODO driver standings
-        return drivers;
+        this.sortDrivers();
+        return this.drivers;
     }
 
     public static Driver  getLeadingDriver() {
-        int leadingPoints = 0;
+        /**int leadingPoints = 0;
         Driver leadingDriver = null;
-        
+
         for (Driver driver: getInstance().drivers) { 
             if (leadingPoints < driver.getPoints()) {
                 leadingPoints = driver.getPoints();
                 leadingDriver = driver;
             }
-        }
-        return leadingDriver; 
+        }**/
+
+        getInstance().sortDrivers();
+        List<Driver> drivers = getInstance().drivers;
+        return drivers.getFirst(); 
     }
 
     public static int getTotalChampionshipPoints() {
@@ -63,6 +67,11 @@ public class ChampionshipManager {
         return totalPoints;
     }
     
+    // sort drivers based on points
+    private void sortDrivers() {
+        this.drivers.sort(Comparator.comparing(Driver::getPoints)); 
+    }
+
     // not in UML but it is needed to get the number into ChampionshipStatistics
     public static int getTotalRacesHeld() {
         return totalRaces;
@@ -72,4 +81,5 @@ public class ChampionshipManager {
     public static int getTotalDrivers() {
         return totalDrivers;
     }
+    
 }
