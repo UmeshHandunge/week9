@@ -6,13 +6,11 @@ public class GravelCar extends RallyCar{
     public GravelCar(String make, String model, int horsePower, double suspensionTravel) {
         super(make, model, horsePower);
         this.suspensionTravel = suspensionTravel;
-        //TODO Auto-generated constructor stub
     }
 
     @Override
     public double calculatePerformance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculatePerformance'");
+        return this.getHorsePower() * 0.85 + this.suspensionTravel * 1.2;
     }
 
     public double getSuspensionTravel() {

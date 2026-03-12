@@ -22,7 +22,7 @@ public class Driver {
         return this.country;
     }
 
-    public int getpoints(){
+    public int getPoints(){
         return this.points;
     }
 
