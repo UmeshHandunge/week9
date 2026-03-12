@@ -67,9 +67,10 @@ public class ChampionshipManager {
         return totalPoints;
     }
     
+    // not in uml 
     // sort drivers based on points
     private void sortDrivers() {
-        this.drivers.sort(Comparator.comparing(Driver::getPoints)); 
+        this.drivers.sort(Comparator.comparing(Driver::getPoints).reversed()); //reversed to get it in descending order
     }
 
     // not in UML but it is needed to get the number into ChampionshipStatistics
@@ -80,6 +81,11 @@ public class ChampionshipManager {
     // not in UML but it is needed to display as shown in the example output
     public static int getTotalDrivers() {
         return totalDrivers;
+    }
+
+    //not in UML but needed for displaying races
+    public static List<RallyRaceResult> getRaces() {
+        return getInstance().races;
     }
     
 }

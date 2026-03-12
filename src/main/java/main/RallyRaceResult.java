@@ -34,7 +34,8 @@ public class RallyRaceResult implements RaceResult {
     public List<Driver> getResults() {
         List<Driver> rankedDrivers = new ArrayList<>();
 
-        for (int i = 0; i < result.size(); i++) {
+        //ordering the drivers according to their race rank
+        for (int i = 1; i <= result.size(); i++) {
             rankedDrivers.add(ranking.get(i));
         }
         
